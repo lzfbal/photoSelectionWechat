@@ -1,0 +1,146 @@
+/* pages/portfolio/portfolio.wxss */
+.portfolio-filter-controls {
+  margin-bottom: 40rpx;
+  text-align: center;
+}
+
+.category-tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20rpx; /* flexbox 间距 */
+}
+
+.category-tag-button {
+  background-color: #e9ecef;
+  color: #495057;
+  padding: 15rpx 30rpx;
+  border: 1rpx solid #dee2e6;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  transition: all 0.3s ease;
+  min-width: 160rpx; /* 确保按钮有最小宽度 */
+}
+
+.category-tag-button.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+  transform: translateY(-2rpx);
+  box-shadow: 0 4rpx 8rpx rgba(0, 123, 255, 0.2);
+}
+
+.category-tag-button:active {
+  opacity: 0.8;
+}
+
+/* 作品网格 */
+.portfolio-grid {
+  display: grid;
+  /* 自动填充列，每列最小 300rpx */
+  grid-template-columns: repeat(auto-fill, minmax(300rpx, 1fr));
+  gap: 40rpx;
+  opacity: 0; /* 初始状态，用于淡入 */
+  transition: opacity 0.3s ease-in-out;
+}
+
+.portfolio-grid.visible {
+  opacity: 1;
+}
+
+.portfolio-item-card {
+  background-color: #fff;
+  border-radius: 16rpx;
+  overflow: hidden;
+  box-shadow: 0 8rpx 16rpx rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.portfolio-item-card:active {
+  transform: translateY(-5rpx);
+  box-shadow: 0 12rpx 24rpx rgba(0, 0, 0, 0.15);
+}
+
+.portfolio-card-image {
+  width: 100%;
+  height: 400rpx; /* 固定图片高度 */
+  display: block;
+}
+
+.portfolio-card-info {
+  padding: 30rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.portfolio-card-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+  display: block; /* text 默认是 inline */
+}
+
+.portfolio-card-category {
+  font-size: 28rpx;
+  color: #6c757d;
+  margin-bottom: 15rpx;
+  display: block;
+}
+
+.portfolio-card-description {
+  font-size: 28rpx;
+  color: #495057;
+  line-height: 1.5;
+  display: block;
+}
+
+/* 
+    模态框样式 (如果使用 wx.previewImage，则不需要以下样式) 
+*/
+/*
+.modal {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content-wrapper {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+}
+
+.close-button {
+  position: absolute;
+  top: 40rpx;
+  right: 40rpx;
+  color: #f1f1f1;
+  font-size: 80rpx;
+  font-weight: bold;
+  transition: 0.3s;
+  z-index: 1001;
+}
+
+.close-button:active {
+  color: #bbb;
+}
+*/

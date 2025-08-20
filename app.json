@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "pages/portfolio/portfolio"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "怪兽岛屿摄影作品集",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

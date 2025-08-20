@@ -1,0 +1,56 @@
+/* app.wxss */
+page {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.client-container {
+  padding: 20rpx;
+  max-width: 1200rpx; /* 模拟 max-width */
+  margin: 0 auto;
+}
+
+/* 标题样式，小程序中 h1, h3 通常用 text 模拟 */
+.page-title {
+  display: block; /* text 默认是 inline */
+  font-size: 48rpx;
+  font-weight: bold;
+  margin-bottom: 40rpx;
+  text-align: center;
+}
+
+.filter-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+  display: block;
+}
+
+.client-message {
+  text-align: center;
+  padding: 40rpx 0;
+  color: #666;
+  font-size: 32rpx;
+}
+
+.client-message .error-text {
+  color: #d9534f;
+  font-weight: bold;
+}
+
+.client-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 15rpx 30rpx;
+  border: none;
+  border-radius: 8rpx;
+  font-size: 32rpx;
+  margin-top: 20rpx;
+  display: inline-block; /* 按钮默认是 block，这里让它像 inline-block */
+  line-height: 1; /* 调整行高使文字居中 */
+}
+
+.client-btn:active {
+  background-color: #0056b3;
+}

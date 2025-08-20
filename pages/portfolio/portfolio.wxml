@@ -1,0 +1,72 @@
+<!-- pages/portfolio/portfolio.wxml -->
+<view class="client-container">
+    <text class="page-title">怪兽岛屿摄影作品集</text>
+
+    <!-- 作品分类筛选器 (标签形式) -->
+    <view class="portfolio-filter-controls">
+        <text class="filter-title">作品分类:</text>
+        <view class="category-tags-container">
+            <!-- 遍历 categories 数组生成分类按钮 -->
+            <button 
+                wx:for="{{categories}}" 
+                wx:key="category" 
+                class="category-tag-button {{item.active ? 'active' : ''}}" 
+                data-category="{{item.category}}" 
+                bindtap="handleCategoryTap"
+            >
+                {{item.name}}
+            </button>
+        </view>
+    </view>
+
+    <!-- 消息区域 -->
+    <view wx:if="{{isLoading}}" class="client-message">
+        <text>加载中...</text>
+    </view>
+    <view wx:if="{{isError}}" class="client-message">
+        <text class="error-text">{{errorMessage}}</text>
+        <button class="client-btn" bindtap="retryLoad">重试</button>
+    </view>
+    <view wx:if="{{noItems}}" class="client-message">
+        <text>目前没有作品。</text>
+    </view>
+
+    <!-- 作品网格 -->
+    <!-- 当不在加载、没有错误、没有作品时才显示网格 -->
+    <view class="portfolio-grid {{gridVisible ? 'visible' : ''}}" wx:if="{{!isLoading && !isError && !noItems}}">
+        <!-- 遍历 filteredPortfolioItems 数组生成作品卡片 -->
+        <view 
+            wx:for="{{filteredPortfolioItems}}" 
+            wx:key="id" 
+            class="portfolio-item-card"
+        >
+            <image 
+                class="portfolio-card-image" 
+                src="{{item.url}}" 
+                mode="aspectFill" 
+                data-url="{{item.url}}" 
+                bindtap="previewImage"
+            ></image>
+            <view class="portfolio-card-info">
+                <text class="portfolio-card-title">{{item.title || '作品'}}</text>
+                <text class="portfolio-card-category">{{item.category}}</text>
+                <text class="portfolio-card-description">{{item.description || ''}}</text>
+            </view>
+        </view>
+    </view>
+
+    <!-- 
+        大图预览模态框：
+        微信小程序推荐使用 wx.previewImage API 进行图片预览，
+        这比自定义模态框更符合小程序生态，且功能更强大（如长按识别、保存等）。
+        因此，以下自定义模态框的代码将不再需要，但保留注释以供参考。
+    -->
+    <!--
+    <view wx:if="{{showModal}}" class="modal" bindtap="closeModal">
+        <view class="modal-content-wrapper">
+            <image class="modal-content" src="{{modalImageUrl}}" mode="aspectFit"></image>
+            <text class="close-button" bindtap="closeModal">&times;</text>
+        </view>
+    </view>
+    -->
+</view>
